@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lease Details</title>
+    <link rel="stylesheet" href="../static/pages/style.css">
+    <script src="../static/components/header.js" type="text/javascript" defer></script>
+
+</head>
+
+<body>
+    <div id="navbar" class="page">
+        <header-component></header-component>
+    </div>
+    <div id="form" class="page">
+        <main>
+            <h1 id="heading">Lease Details</h1>
+
+            <form method="POST" action="/LeaseForm">
+                <label for="client_number">Client Number:</label>
+                <input type="text" id="client_number" name="client_number" required>
+
+                <label for="property_number">Property Number:</label>
+                <input type="text" id="property_number" name="property_number" required>
+
+                <label for="client_name">Client Name:</label>
+                <input type="text" id="client_name" name="client_name" required>
+
+                <label for="property_address">Property Address:</label>
+                <input type="text" id="property_address" name="property_address" required>
+
+                <label for="lease_rent">Lease Rent:</label>
+                <input type="number" id="lease_rent" name="lease_rent" required>
+
+                <label for="lease_deposit_paid">Lease Deposit Paid:</label>
+                <select id="lease_deposit_paid" name="lease_deposit_paid" required>
+                    <option value="">--Select--</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label for="lease_s_date">Lease Start Date:</label>
+                <input type="date" id="lease_s_date" name="lease_s_date" required>
+
+                <label for="lease_e_date">Lease End Date:</label>
+                <input type="date" id="lease_e_date" name="lease_e_date" required>
+
+                <label hidden for="lease_duration">Lease Duration:</label>
+                <input hidden type="number" id="lease_duration" name="lease_duration" >
+
+                <label for="payment_method">Payment Method:</label>
+                <input type="text" id="payment_method" name="payment_method" required>
+
+                <div class="submit_container">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

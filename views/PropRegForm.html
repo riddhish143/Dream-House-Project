@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Property</title>
+    <link rel="stylesheet" href="../static/pages/style.css">
+    <script src="../static/components/header.js" type="text/javascript" defer></script>
+
+</head>
+
+<body>
+    <div id="navbar" class="page">
+        <header-component></header-component>
+    </div>
+    <div id="form" class="page">
+        <main>
+            <h1 id="heading">Property</h1>
+            <form action="/PropRegForm" method="POST">
+                <label for="property_number">Property Number:</label>
+                <input type="text" id="property_number" name="property_number" required>
+
+                <label for="property_type">Property Type:</label>
+                <select id="property_type" name="property_type" required>
+                    <option value="">Select a type</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="House">House</option>
+                    <option value="Condo">Condo</option>
+                    <option value="Townhouse">Townhouse</option>
+                </select>
+
+                <label for="property_address">Property Address:</label>
+                <input type="text" id="property_address" name="property_address" required>
+
+                <label for="property_rent">Property Rent:</label>
+                <input type="number" id="property_rent" name="property_rent" required>
+
+                <label for="property_room">Property Room:</label>
+                <input type="number" id="property_room" name="property_room" required>
+
+                <label for="staff_number">Staff Number:</label>
+                <input type="text" id="staff_number" name="staff_number" required>
+
+                <label for="property_deposit">Property Deposit:</label>
+                <input type="number" id="property_deposit" name="property_deposit" required>
+
+                <label for="branch_number">Branch Number:</label>
+                <input type="text" id="branch_number" name="branch_number" required>
+
+                <div class="submit_container">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

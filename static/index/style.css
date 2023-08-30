@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #f2f2f2;
+}
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 20px 0 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+#info {
+  flex: 1;
+  top: 7rem;
+}
+
+img {
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.page {
+  position: relative;
+}
+
+#form {
+  flex: 1;
+  top: 10rem;
+}

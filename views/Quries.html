@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Branch</title>
+    <link rel="stylesheet" href="../static/pages/style.css">
+    <script src="../static/components/header.js" type="text/javascript" defer></script>
+    <style>
+        main {
+            max-width: 80%;
+        }
+
+        label,
+        input required,
+        button {
+            display: inline-block;
+            margin: 10px 5px;
+        }
+
+        button {
+            background-color: #333;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar" class="page">
+        <header-component></header-component>
+    </div>
+    <div id="form" class="page">
+        <main>
+            <h1 id="heading">Quries</h1>
+            <form action="/anyquery" id="anyquery" method="get">
+                <hr>
+                <h2 style="text-align: center;"># Enter Any Query #</h2>
+                <hr>
+                <input required type="text" id="anyquery" name="anyquery" style="height: 4rem;">
+                <div style="text-align: center;">
+                    <button onclick="retrieveData('anyq')">Retrieve data </button>
+                </div>
+
+                <table id="table-anyq"></table>
+            </form>
+            <!-- ------------query1------------------------ -->
+            <form action="/query1" id="que1" method="get">
+                <hr>
+                <h2>Query1: List details of staff supervised by a named Supervisor at the branch.</h2>
+                <hr>
+                <label for="que1_Supervisor_name">Supervisor Name:</label>
+                <input required type="text" id="que1_Supervisor_name" name="que1_Supervisor_name">
+                <label for="que1_Branch_number">Branch Number:</label>
+                <input required type="text" id="que1_Branch_number" name="que1_Branch_number">
+                <button onclick="retrieveData('q1')">Retrieve data</button>
+                <table id="table-q1"></table>
+            </form>
+            <!-- ------------query2------------------------ -->
+
+            <form action="/query2" id="que2" method="get">
+                <hr>
+                <h2>Query2: List details of all Assistants alphabetically by name at the branch.</h2>
+                <hr>
+                <label for="que2_Branch_number">Branch number:</label>
+                <input required type="text" id="que2_Branch_number" name="que2_Branch_number">
+                <button onclick="retrieveData('q2')">Retrieve data</button>
+                <table id="table-q2"></table>
+            </form>
+            <!-- ------------query3------------------------ -->
+            <form action="/query3" id="que3" method="get">
+                <hr>
+                <h2>Query3: List the details of property (including the rental deposit) available for rent at the
+                    branch, along with
+                    the owner’s details.</h2>
+                <hr>
+                <label for="que3_Branch_number">Branch number:</label>
+                <input required type="text" id="que3_Branch_number" name="que3_Branch_number">
+                <button onclick="retrieveData('q3')">Retrieve data</button>
+                <table id="table-q3"></table>
+            </form>
+            <!-- ------------query4------------------------ -->
+            <form action="/query4" id="que4" method="get">
+                <hr>
+                <h2>Query4: List the details of properties managed by a named member of staff at the branch.</h2>
+                <hr>
+                <label for="que4_Branch_number">Branch number:</label>
+                <input required type="text" id="que4_Branch_number" name="que4_Branch_number">
+                <label for="que4_Staff_number">Staff number:</label>
+                <input required type="text" id="que4_Staff_number" name="que4_Staff_number">
+                <button onclick="retrieveData('q4')">Retrieve data</button>
+                <table id="table-q4"></table>
+            </form>
+            <!-- ------------query5------------------------ -->
+            <form action="/query5" id="que5" method="get">
+                <hr>
+                <h2>Query5: List the clients registering at the branch and the names of the members of staff who
+                    registered the
+                    clients.</h2>
+                <hr>
+                <label for="que5_Branch_number">Branch number:</label>
+                <input required type="text" id="que5_Branch_number" name="que5_Branch_number">
+                <button onclick="retrieveData('q5')">Retrieve data</button>
+                <table id="table-q5"></table>
+            </form>
+            <!-- ------------query6------------------------ -->
+            <form action="/query6" id="que6" method="get">
+                <hr>
+                <h2>Query6: Identify properties located in Glasgow with rents no higher than £450.</h2>
+                <hr>
+                <button onclick="retrieveData('q6')">Retrieve data</button>
+                <table id="table-q6"></table>
+            </form>
+            <!-- ------------query7------------------------ -->
+            <form action="/query7" id="que7" method="get">
+                <hr>
+                <h2>Query7: Identify the name and telephone number of an owner of a given property.</h2>
+                <hr>
+                <label for="que7_Property_number">Property Number:</label>
+                <input required type="text" id="que7_Property_number" name="que7_Property_number">
+                <button onclick="retrieveData('q7')">Retrieve data</button>
+                <table id="table-q7"></table>
+            </form>
+            <!-- ------------query8------------------------ -->
+
+            <form action="/query8" id="que8" method="get">
+                <hr>
+                <h2>Query8: List the details of comments made by clients viewing a given property.</h2>
+                <hr>
+                <label for="que8_Property_number">Property number:</label>
+                <input required type="text" id="que8_Property_number" name="que8_Property_number">
+                <button onclick="retrieveData('q8')">Retrieve data</button>
+                <table id="table-q8"></table>
+            </form>
+            <!-- ------------query9------------------------ -->
+            <form action="/query9" id="que9" method="get">
+                <hr>
+                <h2>Query9: Display the names and phone numbers of clients who have viewed a given property but not
+                    supplied
+                    comments.</h2>
+                <hr>
+                <label for="que9_Property_number">Property number:</label>
+                <input required type="text" id="que9_Property_number" name="que9_Property_number">
+                <button onclick="retrieveData('q9')">Retrieve data</button>
+                <table id="table-q9"></table>
+            </form>
+            <!-- ------------query10------------------------ -->
+            <form action="/query10" id="que10" method="get">
+                <hr>
+                <h2>Query10: Display the details of a lease between a named client and a given property.</h2>
+                <hr>
+                <label for="que10_Property_number">Property number:</label>
+                <input required type="text" id="que10_Property_number" name="que10_Property_number">
+                <label for="que10_Client_name">Client Name:</label>
+                <input required type="text" id="que10_Client_name" name="que10_Client_name">
+                <button onclick="retrieveData('q10')">Retrieve data</button>
+                <table id="table-q10"></table>
+            </form>
+            <!-- ------------query11------------------------ -->
+            <form action="/query11" id="que11" method="get">
+                <hr>
+                <h2>Query11: Identify the leases due to expire next month at the branch.</h2>
+                <hr>
+                <button onclick="retrieveData('q11')">Retrieve data</button>
+                <table id="table-q11"></table>
+            </form>
+
+            <!-- ------------query12----------------------- -->
+            <form action="/query12" id="que12" method="get">
+                <hr>
+                <h2>Query12: List the details of properties that have not been rented out for more than three months.
+                </h2>
+                <hr>
+                <button onclick="retrieveData('q12')">Retrieve data</button>
+                <table id="table-q12"></table>
+            </form>
+            <!-- ------------query13----------------------- -->
+            <form action="/query13" id="que13" method="get">
+                <hr>
+                <h2>Query13: Produce a list of clients whose preferences match a particular property.</h2>
+                <hr>
+                <label for="que13_Property_type">Property type:</label>
+                <input required type="text" id="que13_Property_type" name="que13_Property_type">
+                <label for="que13_Property_rent">Property rent:</label>
+                <input required type="number" id="que13_Property_rent" name="que13_Property_rent">
+                <button onclick="retrieveData('q13')">Retrieve data</button>
+                <table id="table-q13"></table>
+            </form>
+            <!-- ------------query14----------------------- -->
+            <form action="/query14" id="que14" method="get">
+                <h2>Query14: List the details of branches in a given city.</h2>
+                <label for="que14_Branch_city">Branch_city:</label>
+                <input required type="text" id="que14_Branch_city" name="que14_Branch_city">
+                <button onclick="retrieveData('q14')">Retrieve data</button>
+                <table id="table-q14"></table>
+                         
+            </form>
+
+            <!-- ------------query15----------------------- -->
+            <form action="/query15" id="que15" method="get">
+                <h2>Query15: Identify the total number of branches in each city.</h2>
+                <button onclick="retrieveData('q15')">Retrieve data</button>
+                <table id="table-q15"></table>
+                         
+            </form>
+            <!-- ------------query16----------------------- -->
+            <form action="/query16" id="que16" method="get">
+                <h2>Query16: List the name, position, and salary of staff at a given branch, ordered by staff name.</h2>
+                <label for="que16_Branch_number">Branch_number:</label>
+                <input required type="text" id="que16_Branch_number" name="que16_Branch_number">
+                <button onclick="retrieveData('q16')">Retrieve data</button>
+                <table id="table-q16"></table>
+                         
+            </form>
+            <!-- ------------query17----------------------- -->
+            <form action="/query17" id="que17" method="get">
+                <h2>Query17: Identify the total number of staff and the sum of their salaries.</h2>
+                <button onclick="retrieveData('q17')">Retrieve data</button>
+                <table id="table-q17"></table>
+                         
+            </form>
+            <!-- ------------query18----------------------- -->
+            <form action="/query18" id="que18" method="get">
+                <h2>Query18: Identify the total number of staff in each position at branches in Glasgow.</h2>
+                <button onclick="retrieveData('q18')">Retrieve data</button>
+                <table id="table-q18"></table>
+                         
+            </form>
+            <!-- ------------query19----------------------- -->
+            <form action="/query19" id="que19" method="get">
+                <h2>Query19: List the name of each Manager at each branch, ordered by branch address.</h2>
+                <button onclick="retrieveData('q19')">Retrieve data</button>
+                <table id="table-q19"></table>
+                         
+            </form>
+            <!-- ------------query20----------------------- -->
+            <form action="/query20" id="que20" method="get">
+                <h2>Query20: List the names of staff supervised by a named Supervisor.</h2>
+                <label for="que20_Staff_supervisor_name">Staff_supervisor_name:</label>
+                <input required type="text" id="que20_Staff_supervisor_name" name="que20_Staff_supervisor_name">
+                <button onclick="retrieveData('q20')">Retrieve data</button>
+                <table id="table-q20"></table>
+                         
+            </form>
+            <!-- ------------query21----------------------- -->
+            <form action="/query21" id="que21" method="get">
+                <h2>Query21: List the property number, address, type, and rent of all properties in Glasgow, ordered by
+                    rental amount.</h2>
+                <button onclick="retrieveData('q21')">Retrieve data</button>
+                <table id="table-q21"></table>
+                         
+            </form>
+            <!-- ------------query22----------------------- -->
+            <form action="/query22" id="que22" method="get">
+                <h2>Query22: List the details of properties for rent managed by a named member of staff.</h2>
+                <label for="que22_Full_name">Full_name:</label>
+                <input required type="text" id="que22_Full_name" name="que22_Full_name">
+                <button onclick="retrieveData('q22')">Retrieve data</button>
+                <table id="table-q22"></table>
+                         
+            </form>
+
+            <!-- ------------query23----------------------- -->
+            <form action="/query23" id="que23" method="get">
+                <h2>Query23: Identify the total number of properties assigned to each member of staff at a given branch.
+                </h2>
+                <label for="que23_Branch_number">Branch Number:</label>
+                <input required type="text" id="que23_Branch_number" name="que23_Branch_number">
+                <button onclick="retrieveData('q23')">Retrieve data</button>
+                <table id="table-q23"></table>
+                         
+            </form>
+            <!-- ------------query24----------------------- -->
+            <form action="/query24" id="que24" method="get">
+                <h2>Query24: List the details of properties provided by business owners at a given branch number</h2>
+                <label for="que24_Branch_number">Branch Number:</label>
+                <input required type="text" id="que24_Branch_number" name="que24_Branch_number">
+                <button onclick="retrieveData('q24')">Retrieve data</button>
+                <table id="table-q24"></table>
+                         
+            </form>
+            <!-- ------------query25----------------------- -->
+            <form action="/query25" id="que25" method="get">
+                <h2>Query25:Identify the total number of properties of each type at all branches.</h2>
+                <button onclick="retrieveData('q25')">Retrieve data</button>
+                <table id="table-q25"></table>
+                         
+            </form>
+            <!-- ------------query26----------------------- -->
+            <form action="/query26" id="que26" method="get">
+                <h2>Query26: Identify the details of private property owners that provide more than one property for
+                    rent.</h2>
+                <label for="que26_Powner_type">Powner Type:</label>
+                <input required type="text" id="que26_Powner_type" name="que26_Powner_type">
+                <label for="que26_Property_type">Property Type:</label>
+                <input required type="text" id="que26_Property_type" name="que26_Property_type">
+                <button onclick="retrieveData('q26')">Retrieve data</button>
+                <table id="table-q26"></table>
+                         
+            </form>
+            <!-- ------------query27----------------------- -->
+            <form action="/query27" id="que27" method="get">
+                <h2>Query27: Identify flats with at least three rooms and with a monthly rent no higher than £500 in
+                    Aberdeen.</h2>
+                <label for="que27_Property_type">Property Type:</label>
+                <input required type="text" id="que27_Property_type" name="que27_Property_type">
+                <button onclick="retrieveData('q27')">Retrieve data</button>
+                <table id="table-q27"></table>
+                         
+            </form>
+            <!-- ------------query28----------------------- -->
+            <form action="/query28" id="que28" method="get">
+                <h2>Query28: List the number, name, and telephone number of clients and their property preferences at a
+                    given branch..</h2>
+                <label for="que28_Branch_number">Branch Number:</label>
+                <input required type="text" id="que28_Branch_number" name="que28_Branch_number">
+                <button onclick="retrieveData('q28')">Retrieve data</button>
+                <table id="table-q28"></table>
+                         
+            </form>
+            <!-- ------------query29----------------------- -->
+            <form action="/query29" id="que29" method="get">
+                <h2>Query29: Identify the properties that have been advertised more than the average number of times.
+                </h2>
+                <button onclick="retrieveData('q29')">Retrieve data</button>
+                <table id="table-q29"></table>
+                         
+            </form>
+            <!-- ------------query30----------------------- -->
+            <form action="/query30" id="que30" method="get">
+                <h2>Query30: List the details of leases due to expire next month at a given branch.</h2>
+                <label for="que30_Branch_number">Branch Number:</label> 
+                <input required type="text" id="que30_Branch_number" name="que30_Branch_number">
+                <button onclick="retrieveData('q30')">Retrieve data</button>
+                <table id="table-q30"></table>
+                         
+            </form>
+            <!-- ------------query31----------------------- -->
+            <form action="/query31" id="que31" method="get">
+                <h2>Query31: List the total number of leases with rental periods that are less than one year at branches
+                    in London.</h2>
+                <label for="que31_Branch_city">Branch City:</label>
+                <input required type="text" id="que31_Branch_city" name="que31_Branch_city">
+                <button onclick="retrieveData('q31')">Retrieve data</button>
+                <table id="table-q31"></table>
+                         
+            </form>
+            <!-- ------------query32----------------------- -->
+            <form action="/query32" id="que32" method="get">
+                <h2>Query32: List the total possible daily rental for property at each branch, ordered by branch number.
+                </h2>
+                <button onclick="retrieveData('q32')">Retrieve data</button>
+                <table id="table-q32"></table>
+                         
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>
